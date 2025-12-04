@@ -1,2 +1,1 @@
-// app/notes/filter/default.tsx
-export { default } from "../[...tag]/page";
+export { default } from "./[...tag]/page";
