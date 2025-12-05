@@ -2,13 +2,8 @@
 
 import { use } from "react";
 import { useRouter } from "next/navigation";
-import dynamic from "next/dynamic";
-
-const Modal = dynamic(() => import("@/components/Modal/Modal"), { ssr: false });
-const NotePreview = dynamic(
-  () => import("@/components/NotePreview/NotePreview"),
-  { ssr: false }
-);
+import Modal from "../../../components/Modal/Modal";
+import NotePreview from "../../../components/NotePreview/NotePreview";
 
 export default function InterceptedNotePage({
   params,

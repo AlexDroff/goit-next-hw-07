@@ -1,4 +1,3 @@
-// app/notes/filter/[...tag]/page.tsx
 import {
   dehydrate,
   HydrationBoundary,
@@ -8,16 +7,22 @@ import { fetchNotes } from "@/lib/api";
 import type { NoteTag } from "@/types/note";
 import NotesClient from "../../Notes.client";
 
+const VALID_TAGS = ["Todo", "Work", "Personal", "Meeting", "Shopping"] as const;
+
 export default async function FilteredNotesPage({
   params,
 }: {
   params: Promise<{ tag: string[] }>;
 }) {
-  const { tag } = await params;
+  const resolvedParams = await params;
+  const tagValue = resolvedParams.tag?.[0];
 
-  const tagValue = tag?.[0];
   const initialTag: NoteTag | undefined =
-    tagValue && tagValue !== "all" ? (tagValue as NoteTag) : undefined;
+    tagValue &&
+    tagValue !== "all" &&
+    (VALID_TAGS as readonly string[]).includes(tagValue)
+      ? (tagValue as NoteTag)
+      : undefined;
 
   const queryClient = new QueryClient();
   await queryClient.prefetchQuery({

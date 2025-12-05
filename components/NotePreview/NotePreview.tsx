@@ -1,5 +1,6 @@
 "use client";
 
+import { useRouter } from "next/navigation";
 import { useQuery } from "@tanstack/react-query";
 import { fetchNoteById } from "@/lib/api";
 import type { Note } from "@/types/note";
@@ -10,6 +11,8 @@ interface NotePreviewProps {
 }
 
 export default function NotePreview({ noteId }: NotePreviewProps) {
+  const router = useRouter();
+
   const {
     data: note,
     isLoading,
@@ -36,7 +39,7 @@ export default function NotePreview({ noteId }: NotePreviewProps) {
         <p className={css.date}>
           Created: {new Date(note.createdAt).toLocaleDateString()}
         </p>
-        <button className={css.backBtn} onClick={() => window.history.back()}>
+        <button className={css.backBtn} onClick={() => router.back()}>
           ← Back to notes
         </button>
       </div>

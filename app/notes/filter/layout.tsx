@@ -1,6 +1,6 @@
 // app/notes/filter/layout.tsx
 import type { ReactNode } from "react";
-import styles from "../notes-layout.module.css";
+import css from "./filter-layout.module.css";
 
 export default function FilterLayout({
   children,
@@ -10,9 +10,9 @@ export default function FilterLayout({
   sidebar: ReactNode;
 }) {
   return (
-    <div className={styles.container}>
-      <aside className={styles.sidebar}>{sidebar}</aside>
-      <main className={styles.main}>{children}</main>
+    <div className={css.container}>
+      <aside className={css.sidebar}>{sidebar}</aside>
+      <main className={css.main}>{children}</main>
     </div>
   );
 }

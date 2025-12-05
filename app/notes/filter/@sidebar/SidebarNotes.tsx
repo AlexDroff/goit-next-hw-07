@@ -1,8 +1,7 @@
-// app/notes/filter/@sidebar/SidebarNotes.tsx
 "use client";
 
 import Link from "next/link";
-import styles from "./SidebarNotes.module.css";
+import css from "./SidebarNotes.module.css";
 
 const TAGS = [
   { value: "all", label: "All notes" },
@@ -15,10 +14,10 @@ const TAGS = [
 
 export default function SidebarNotes() {
   return (
-    <ul className={styles.menuList}>
+    <ul className={css.menuList}>
       {TAGS.map((tag) => (
-        <li key={tag.value} className={styles.menuItem}>
-          <Link href={`/notes/filter/${tag.value}`} className={styles.menuLink}>
+        <li key={tag.value} className={css.menuItem}>
+          <Link href={`/notes/filter/${tag.value}`} className={css.menuLink}>
             {tag.label}
           </Link>
         </li>

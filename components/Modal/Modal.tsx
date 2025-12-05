@@ -3,7 +3,7 @@
 import type { ReactNode } from "react";
 import { useEffect, useCallback } from "react";
 import { createPortal } from "react-dom";
-import styles from "./Modal.module.css";
+import css from "./Modal.module.css";
 
 interface ModalProps {
   children: ReactNode;
@@ -34,12 +34,12 @@ const Modal = ({ children, onClose }: ModalProps) => {
 
   return createPortal(
     <div
-      className={styles.backdrop}
+      className={css.backdrop}
       onClick={onClose}
       role="dialog"
       aria-modal="true"
     >
-      <div className={styles.modal} onClick={(e) => e.stopPropagation()}>
+      <div className={css.modal} onClick={(e) => e.stopPropagation()}>
         {children}
       </div>
     </div>,
