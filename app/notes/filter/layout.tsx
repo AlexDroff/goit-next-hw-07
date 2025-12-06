@@ -1,4 +1,3 @@
-// app/notes/filter/layout.tsx
 import type { ReactNode } from "react";
 import css from "./filter-layout.module.css";
 

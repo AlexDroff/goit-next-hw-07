@@ -5,17 +5,17 @@ import {
 } from "@tanstack/react-query";
 import { fetchNotes } from "@/lib/api";
 import type { NoteTag } from "@/types/note";
-import NotesClient from "../../Notes.client";
+import NotesClient from "./Notes.client";
 
 const VALID_TAGS = ["Todo", "Work", "Personal", "Meeting", "Shopping"] as const;
 
 export default async function FilteredNotesPage({
   params,
 }: {
-  params: Promise<{ tag: string[] }>;
+  params: Promise<{ slug: string[] }>;
 }) {
   const resolvedParams = await params;
-  const tagValue = resolvedParams.tag?.[0];
+  const tagValue = resolvedParams.slug?.[0];
 
   const initialTag: NoteTag | undefined =
     tagValue &&

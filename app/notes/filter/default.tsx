@@ -1,1 +1,1 @@
-export { default } from "./[...tag]/page";
+export { default } from "./[...slug]/page";

@@ -5,8 +5,10 @@ import "./globals.css";
 
 export default function RootLayout({
   children,
+  modal,
 }: {
   children: React.ReactNode;
+  modal: React.ReactNode;
 }) {
   return (
     <html lang="en">
@@ -15,9 +17,13 @@ export default function RootLayout({
       >
         <TanstackProvider>
           <Header />
-          <main style={{ flex: 1 }}>{children}</main>
+          <main style={{ flex: 1 }}>
+            {children}
+            {modal}
+          </main>
           <Footer />
         </TanstackProvider>
+        <div id="modal-root" />
       </body>
     </html>
   );
